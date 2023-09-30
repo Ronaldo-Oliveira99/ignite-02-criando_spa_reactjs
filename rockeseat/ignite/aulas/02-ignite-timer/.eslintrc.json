@@ -1,0 +1,14 @@
+{
+    "extends" : "@rocketseat/eslint-config/react"
+}
+
+//para testar o eslint. no terminal digite:
+//npx eslint src --ext .ts,.tsx 
+// ira trazer os aruivos com erros de digitação
+
+//npx eslint src --ext .ts,.tsx --fix  => corrige em toda aplicação 
+
+//FOI COLOCADO ESSE COMANDO NO PACKET JSON:
+//"lint": "eslint src --ext .ts,.tsx"
+
+// para rodar o : npm run lint => fara o comando acima

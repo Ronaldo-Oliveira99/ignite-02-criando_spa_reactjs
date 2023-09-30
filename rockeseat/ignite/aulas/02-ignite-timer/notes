@@ -1,0 +1,47 @@
+Configurações iniciais do projeto
+
+criar a estrutura do projeto utilizando o vite:
+npm crate vite@latest
+
+apagar os arquivos: 
+App.css
+index.css
+logo.svg
+Remover as importações destes arquivos
+
+Remover em App.tsx:
+tudo dentro return(), e colocar um <h1>Hello</h1>
+
+ir no cmd e instalar todas as dependencias do projeto:
+/02-isnite-timer
+> npm i 
+
+em App.tsx:
+retira o export defalt App e colocar o export na function: 
+*export function App() {}
+
+em main.tsx: colocar chaves:
+import App from "./app"  ->para:
+*import { App } from "./app"
+
+para rodar o projeto:
+npm run dev
+----------------------------------------------------------------
+USAR O STYLED COMMPONENTS ( escrever css no formato javascript)
+
+obs: no site npmjs.com, ao lado de um pacote/dependencia tem uma sigla DT, que significa que o pcaote possui nao possi tipagem typescript. sendo necessario utilizar outro pacote complemetar --> @types/styled-components
+ 
+instalar:
+npm i styled-components
+npm i @types/styled-components -D
+(-D -> dependencia de desenvolvimento, nao pprecisa das tipagens em producao, em producao os codigos sao convertidos para javascript )
+
+----------------------------------------------------------------
+
+Dica: criar uma pasta ja com um arquivo => components/Button.tsx 
+
+------------------------------------------------------
+importante: utilizar uma extensão vscode - vscode-styled-components
+
+
+
