@@ -1,13 +1,17 @@
 import { differenceInSeconds } from 'date-fns'
-import { useContext, useEffect, useState } from 'react'
-import { CyclesContext } from '../..'
+import { useContext, useEffect /* , useState */ } from 'react'
 import { CountdownContainer, Separator } from './styles'
+import { CyclesContext } from '../../../../contexts/CyclesContext'
 
 export function Countdown() {
   // utiliza o contexto criado em home
-  const { activeCycle, activeCycleId, markCurrentCycleAsFinished } =
-    useContext(CyclesContext)
-  const [amountSecondsPassed, setAmountSecondsPassed] = useState(0) // armazena a qtd de segundos que ja se passaram desde a criação do ciclo
+  const {
+    activeCycle,
+    activeCycleId,
+    markCurrentCycleAsFinished,
+    amountSecondsPassed,
+    setSecondsPassed,
+  } = useContext(CyclesContext)
 
   // converter o numero de minutos , inseridos pelo usuario para segundos => pega o ciclo ativo
   // para reduzir o countdown de segundo a segundo
@@ -47,13 +51,13 @@ export function Countdown() {
           // )
 
           // para ficar zerado , estava parando no 00:01
-          setAmountSecondsPassed(totalSeconds)
+          setSecondsPassed(totalSeconds)
 
           // parar o intervalo apos a finalização do ciclo
           clearInterval(interval)
         } else {
           // estado para controlar os segundos passados
-          setAmountSecondsPassed(secodsDifference)
+          setSecondsPassed(secodsDifference)
         }
       }, 1000)
     }
@@ -64,8 +68,14 @@ export function Countdown() {
       clearInterval(interval)
     }
 
-    // toda variavel externa deverá ser incluida no array do use Effect
-  }, [activeCycle, totalSeconds, activeCycleId, markCurrentCycleAsFinished])
+    // toda variavel externa deverá ser incluida no array de dependencia do useEffect
+  }, [
+    activeCycle,
+    totalSeconds,
+    activeCycleId,
+    markCurrentCycleAsFinished,
+    setSecondsPassed,
+  ])
 
   // REGRAS SEGUNDOS E MINUTOS
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0 // será o total de segundos - o total de segundos que já se passaram

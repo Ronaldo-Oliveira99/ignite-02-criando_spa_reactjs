@@ -43,5 +43,9 @@ Dica: criar uma pasta ja com um arquivo => components/Button.tsx
 ------------------------------------------------------
 importante: utilizar uma extensão vscode - vscode-styled-components
 
+------------------------------------
+
+ctrl + space => busca a importação automatica
+
 
 
