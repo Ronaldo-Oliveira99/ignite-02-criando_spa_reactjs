@@ -26,7 +26,7 @@ export function Countdown() {
         // instalado o pacote "date nfs" para usar uma função de comparação differenceInSeconds
         const secodsDifference = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         // se o contado chegar a zero , o contador finaliza o ciclo
@@ -89,7 +89,7 @@ export function Countdown() {
   const minutes = String(minutesAmount).padStart(2, '0') //= > inclui um 0 ate completar 2 caracteres
   const seconds = String(secondsAmount).padStart(2, '0') //= > inclui um 0 ate completar 2 caracteres
 
-  console.log('activeCycle', activeCycle)
+  // console.log('activeCycle', activeCycle)
 
   // para mostrar o timer na aba do navegador
   useEffect(() => {

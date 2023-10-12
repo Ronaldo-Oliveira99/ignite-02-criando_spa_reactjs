@@ -60,14 +60,19 @@ export function Home() {
     },
   })
 
-  const { /*  register,  */ handleSubmit, watch /*, formState */ /* reset */ } =
+  const { /*  register,  */ handleSubmit, watch /*, formState */, reset } =
     newCycleForm
 
   // **formState tem um atributo para erros de validação
   // **retorna erros de validação
   // **console.log(formState.errors)
-
   // evento de form submit
+
+  // criacao de uma nova funcao para event para chamar o reset do  hooks form
+  function handlecreateNewCycle(data: NewCicleFormData) {
+    createNewCycle(data)
+    reset()
+  }
 
   // fica observando task => taskInput
   const task = watch('task')
@@ -80,7 +85,7 @@ export function Home() {
    */
   return (
     <HomeContainer>
-      <form action="" onSubmit={handleSubmit(createNewCycle)}>
+      <form action="" onSubmit={handleSubmit(handlecreateNewCycle)}>
         {/* passando as variaveis via contexto CyclesContext.Provider */}
 
         {/* enviar o register atraves de provider 'FormProvider' para o componente NewCycleForm */}

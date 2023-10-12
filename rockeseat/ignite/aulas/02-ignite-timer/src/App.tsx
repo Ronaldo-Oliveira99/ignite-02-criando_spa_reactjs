@@ -13,6 +13,7 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
+        {/* necessario colocar o children no elemento pai */}
         <CyclesContextProvider>
           <Router />
         </CyclesContextProvider>

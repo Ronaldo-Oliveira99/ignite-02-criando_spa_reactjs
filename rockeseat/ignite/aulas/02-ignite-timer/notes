@@ -48,4 +48,8 @@ importante: utilizar uma extensão vscode - vscode-styled-components
 ctrl + space => busca a importação automatica
 
 
+--------------------------
 
+UTILIZAÇÃO DO IMMER 
++> Trabalha com a immutabilidade do codigo 
+npm i immer
